@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Restauracja</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_hint">Adres email</string>
+    <string name="password_hint">Hasło</string>
+    <string name="login_button">Zaloguj</string>
+    <string name="register_button">Utwórz konto</string>
+    <string name="password_confirm_hint">Ponów hasło</string>
+    <string name="button_logout">Wyloguj</string>
+</resources>
