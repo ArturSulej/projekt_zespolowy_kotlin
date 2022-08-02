@@ -12,10 +12,11 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 import com.example.projekt_zespolowy_and.FragmentNavigation
-import com.example.projekt_zespolowy_and.LoginFragment
 import com.example.projekt_zespolowy_and.R
+import com.example.projekt_zespolowy_and.login_register.LoginFragment
 
 // TODO: Rename parameter arguments, choose names that match
+// TODO: add swipe gestures
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"

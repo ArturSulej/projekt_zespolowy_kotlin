@@ -1,4 +1,4 @@
-package com.example.projekt_zespolowy_and
+package com.example.projekt_zespolowy_and.login_register
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -10,9 +10,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.example.projekt_zespolowy_and.FragmentNavigation
+import com.example.projekt_zespolowy_and.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,7 +29,6 @@ class RegisterFragment : Fragment() {
     private lateinit var password: EditText
     private lateinit var check_password: EditText
     private lateinit var button_register: Button
-    private lateinit var fAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +49,6 @@ class RegisterFragment : Fragment() {
         password = view.findViewById(R.id.password_register)
         check_password = view.findViewById(R.id.password_check_register)
         button_register = view.findViewById<Button>(R.id.button_register_reg)
-        fAuth = Firebase.auth
 
         view.findViewById<Button>(R.id.button_login_reg).setOnClickListener {
             var navRegister = activity as FragmentNavigation
@@ -104,19 +101,9 @@ class RegisterFragment : Fragment() {
     private fun firebaseSignUp() {
         button_register.isEnabled = false
         button_register.alpha = 0.5f
-        fAuth.createUserWithEmailAndPassword(username.text.toString(),
-            password.text.toString()).addOnCompleteListener{
-             task ->
-                if (task.isSuccessful){
-                    Toast.makeText(context,"Utworzono konto",Toast.LENGTH_SHORT).show()
-                    var navHome = activity as FragmentNavigation
-                    navHome.navigateFrag(LoginFragment(),false)
-                }else{
-                    button_register.isEnabled = true
-                    button_register.alpha = 1.0f
-                    Toast.makeText(context,task.exception?.message,Toast.LENGTH_SHORT).show()
-                }
-        }
+        Toast.makeText(context,"Utworzono konto",Toast.LENGTH_SHORT).show()
+        var navHome = activity as FragmentNavigation
+        navHome.navigateFrag(LoginFragment(),false)
     }
 
     companion object {

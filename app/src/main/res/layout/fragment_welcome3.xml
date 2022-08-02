@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WelcomeFragment">
+    tools:context="welcome.WelcomeFragment">
 
     <ImageView
         android:id="@+id/image1"
@@ -89,7 +89,7 @@
         android:outlineAmbientShadowColor="#FFFFFF"
         android:outlineProvider="none"
         android:text="Pomiń"
-        android:textColor="#00FFAF"
+        android:textColor="#4CAF50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

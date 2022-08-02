@@ -1,4 +1,4 @@
-package com.example.projekt_zespolowy_and
+package com.example.projekt_zespolowy_and.login_register
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -10,9 +10,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.example.projekt_zespolowy_and.FragmentNavigation
+import com.example.projekt_zespolowy_and.HomeFragment
+import com.example.projekt_zespolowy_and.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +29,6 @@ class LoginFragment : Fragment() {
     private lateinit var username: EditText
     private lateinit var password: EditText
     private lateinit var button_login: Button
-    private lateinit var fAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +48,6 @@ class LoginFragment : Fragment() {
         username = view.findViewById(R.id.username_login)
         password = view.findViewById(R.id.password_login)
         button_login = view.findViewById(R.id.button_login)
-        fAuth = Firebase.auth
 
         view.findViewById<Button>(R.id.button_register).setOnClickListener {
             var navRegister = activity as FragmentNavigation
@@ -95,19 +93,9 @@ class LoginFragment : Fragment() {
     private fun firebaseSignIn() {
         button_login.isEnabled = false
         button_login.alpha = 0.5f
-        fAuth.signInWithEmailAndPassword(username.text.toString(),
-            password.text.toString()).addOnCompleteListener{
-                task->
-                if(task.isSuccessful){
-                    Toast.makeText(context,"Zalogowano",Toast.LENGTH_SHORT).show()
-                    var navHome = activity as FragmentNavigation
-                    navHome.navigateFrag(HomeFragment(),true)
-                }else{
-                    button_login.isEnabled = true
-                    button_login.alpha = 1.0f
-                    Toast.makeText(context,task.exception?.message,Toast.LENGTH_SHORT).show()
-                }
-        }
+        Toast.makeText(context,"Zalogowano",Toast.LENGTH_SHORT).show()
+        var navHome = activity as FragmentNavigation
+        navHome.navigateFrag(HomeFragment(),true)
     }
 
 

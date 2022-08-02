@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projekt_zespolowy_and.login_register.LoginFragment
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
@@ -26,8 +27,6 @@ private const val ARG_PARAM2 = "param2"
 class HomeFragment : Fragment() {
     var recyclerView: RecyclerView? = null
     var productList = ArrayList<Product>()
-    //private var database: FirebaseDatabase? = null
-    //private var reference: DatabaseReference? = null
     private var adapter: ProductAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,9 +40,6 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_home, container, false)
-
-        //database = FirebaseDatabase.getInstance("https://projekzespolowy-63193-default-rtdb.europe-west1.firebasedatabase.app")
-        //reference = database?.getReference("products")
 
         val firebaseListener = object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -69,7 +65,6 @@ class HomeFragment : Fragment() {
             }
 
         }
-        //reference?.addValueEventListener(firebaseListener)
 
         recyclerView = view.findViewById(R.id.recycler_view)
         recyclerView?.setHasFixedSize(true)
@@ -79,11 +74,10 @@ class HomeFragment : Fragment() {
         adapter = ProductAdapter(productList)
         recyclerView?.adapter = adapter
 
-        view.findViewById<Button>(R.id.button_logout).setOnClickListener{
-            //Firebase.auth.signOut()
+        /*view.findViewById<Button>(R.id.button_logout).setOnClickListener{
             var navLogin = activity as FragmentNavigation
             navLogin.navigateFrag(LoginFragment(),false)
-        }
+        }*/
         return view
     }
 
