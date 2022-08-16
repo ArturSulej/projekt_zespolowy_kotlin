@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projekt_zespolowy_and.login_register.LoginFragment
+import com.example.projekt_zespolowy_and.login_register.RegisterFragment
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
@@ -28,6 +30,9 @@ class HomeFragment : Fragment() {
     var recyclerView: RecyclerView? = null
     var productList = ArrayList<Product>()
     private var adapter: ProductAdapter? = null
+    private lateinit var homeButton: ImageButton
+    private lateinit var menuButton: ImageButton
+    private lateinit var accountButton: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +45,10 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        homeButton = view.findViewById(R.id.glownaButton)
+        menuButton = view.findViewById(R.id.menuButton)
+        accountButton = view.findViewById(R.id.kontoButton)
 
         val firebaseListener = object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -77,6 +86,20 @@ class HomeFragment : Fragment() {
         /*view.findViewById<Button>(R.id.button_logout).setOnClickListener{
             var navLogin = activity as FragmentNavigation
             navLogin.navigateFrag(LoginFragment(),false)
+        }*/
+
+        view.findViewById<ImageButton>(R.id.glownaButton).setOnClickListener {
+            var navRegister = activity as FragmentNavigation
+            navRegister.navigateFrag(HomeFragment(),false)
+        }
+        view.findViewById<ImageButton>(R.id.menuButton).setOnClickListener {
+            var navRegister = activity as FragmentNavigation
+            navRegister.navigateFrag(MenuFragment(),true)
+        }
+        /*
+        view.findViewById<Button>(R.id.kontoButton).setOnClickListener {
+            var navRegister = activity as FragmentNavigation
+            navRegister.navigateFrag(HomeFragment(),true)
         }*/
         return view
     }

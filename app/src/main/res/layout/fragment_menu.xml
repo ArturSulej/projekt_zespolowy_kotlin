@@ -5,34 +5,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img_background"
     tools:context=".MenuFragment">
 
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="414dp"
-        android:layout_height="733dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="30dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:layout_marginStart="30dp"
         android:layout_marginTop="25dp"
-        android:src="@android:drawable/ic_dialog_dialer"
+        android:src="@drawable/img_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="30dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="30dp"
@@ -59,14 +49,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
+                android:alpha="0.9"
+                android:background="#4CAF50"
                 android:drawableLeft="@android:drawable/ic_menu_search"
+                android:drawablePadding="17dp"
                 android:ems="10"
                 android:hint="Szukaj"
                 android:inputType="text"
-                android:textColorHint="#FFFFFF"
-                android:background="@drawable/search_background"
-                android:drawablePadding="17dp"
                 android:padding="13dp"
+                android:textColorHint="#0D47A1"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -77,39 +68,40 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
-                android:layout_height="39dp"
+                android:layout_height="48dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="29dp"
-                android:background="@drawable/search_background"
+                android:background="@drawable/button_states"
                 android:text="All"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="17sp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button2"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/search" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
-                android:layout_height="39dp"
-                android:background="@drawable/button_background"
+                android:layout_height="48dp"
+                android:background="@drawable/button_states"
+                android:outlineAmbientShadowColor="#4CAF50"
                 android:text="New"
                 android:textAllCaps="false"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textSize="17sp"
-                app:layout_constraintTop_toTopOf="@+id/button"
                 app:layout_constraintEnd_toStartOf="@+id/button3"
-                app:layout_constraintStart_toEndOf="@+id/button" />
+                app:layout_constraintStart_toEndOf="@+id/button"
+                app:layout_constraintTop_toTopOf="@+id/button" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button3"
                 android:layout_width="110dp"
-                android:layout_height="39dp"
-                android:background="@drawable/button_background"
+                android:layout_height="48dp"
+                android:background="@drawable/button_states"
                 android:text="Category"
                 android:textAllCaps="false"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textSize="17sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/button2"
@@ -187,87 +179,80 @@
     <View
         android:id="@+id/bottom"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@drawable/bottom_background"
+        android:layout_height="70dp"
+        android:background="#4CAF50"
+        android:backgroundTint="#4CAF50"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"></View>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></View>
 
     <LinearLayout
         android:id="@+id/glowna"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/bottom"
-        app:layout_constraintEnd_toStartOf="@+id/menu"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bottom">
 
-        <ImageView
-            android:layout_width="30dp"
-            android:adjustViewBounds="true"
+        <ImageButton
+            android:id="@+id/glownaButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:alpha="0.4"
-            android:src="@android:drawable/ic_menu_view" />
+            android:adjustViewBounds="false"
+            android:backgroundTint="#004CAF50"
+            android:contentDescription="@string/glownaButtonText"
+            android:src="@android:drawable/sym_action_chat"
+            app:tint="@color/black" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Główna"
-            android:textColor="#fff"
-            android:layout_marginTop="7dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/menu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@+id/glowna"
-        app:layout_constraintTop_toTopOf="@+id/bottom"
-        app:layout_constraintEnd_toStartOf="@+id/settings"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/settings"
+        app:layout_constraintStart_toEndOf="@+id/glowna"
+        app:layout_constraintTop_toTopOf="@+id/bottom">
 
-        <ImageView
-            android:layout_width="30dp"
-            android:adjustViewBounds="true"
+        <ImageButton
+            android:id="@+id/menuButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_dialog_dialer" />
+            android:adjustViewBounds="false"
+            android:backgroundTint="#004CAF50"
+            android:contentDescription="@string/menuButtonText"
+            android:src="@android:drawable/ic_dialog_dialer"
+            app:tint="@color/black" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Menu"
-            android:textColor="#fff"
-            android:layout_marginTop="7dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/settings"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="@+id/bottom"
         app:layout_constraintStart_toEndOf="@+id/menu"
-        android:gravity="center"
         app:layout_constraintTop_toTopOf="@+id/bottom">
 
-        <ImageView
-            android:layout_width="30dp"
+        <ImageButton
+            android:id="@+id/kontoButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:alpha="0.4"
-            android:src="@android:drawable/ic_dialog_info" />
+            android:adjustViewBounds="false"
+            android:backgroundTint="#004CAF50"
+            android:contentDescription="@string/kontoButtonText"
+            android:src="@android:drawable/sym_action_email"
+            app:tint="@color/black" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:text="Konto"
-            android:textColor="#fff" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
