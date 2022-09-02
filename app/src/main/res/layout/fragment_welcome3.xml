@@ -22,74 +22,72 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Witaj w naszej restauracji 333"
+        android:text="Dobre jedzenie w dobrych cenach"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image1" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:breakStrategy="balanced"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="U nas dobrze zjesz i przy tym nie zbankrutujesz"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info"
+        app:layout_wrapBehaviorInParent="included" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginBottom="32dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonNext"
+        app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
             android:id="@+id/radioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-             />
+            android:checked="false" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:checked="false" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checked="true"/>
+            android:buttonTint="#4CAF50"
+            android:checked="true" />
     </RadioGroup>
 
     <ImageButton
-        android:id="@+id/buttonPrev"
-        android:layout_width="40dp"
-        android:layout_height="35dp"
-        android:background="#008E0707"
-        android:src="?attr/actionModeCloseDrawable"
-        app:layout_constraintBottom_toBottomOf="@+id/radioGroup"
-        app:layout_constraintEnd_toStartOf="@+id/radioGroup"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/radioGroup" />
-
-    <ImageButton
         android:id="@+id/buttonNext"
-        android:layout_width="40dp"
-        android:layout_height="35dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
         android:background="#008E0707"
-        android:clickable="false"
         android:rotationY="180"
         android:src="?attr/actionModeCloseDrawable"
+        android:tint="#4CAF50"
         app:layout_constraintBottom_toBottomOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
         app:layout_constraintTop_toTopOf="@+id/radioGroup" />
 
-    <Button
-        android:id="@+id/buttonSkip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@android:color/transparent"
-        android:outlineAmbientShadowColor="#FFFFFF"
-        android:outlineProvider="none"
-        android:text="Pomiń"
-        android:textColor="#4CAF50"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

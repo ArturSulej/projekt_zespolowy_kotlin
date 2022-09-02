@@ -28,9 +28,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class WelcomeFragment3 : Fragment() {
     // TODO: Rename and change types of parameters
-    private lateinit var button_prev: ImageButton
     private lateinit var button_next: ImageButton
-    private lateinit var button_skip: Button
     private lateinit var info1: RadioButton
     private lateinit var info2: RadioButton
     private lateinit var info3: RadioButton
@@ -51,9 +49,7 @@ class WelcomeFragment3 : Fragment() {
 
         var view = inflater.inflate(R.layout.fragment_welcome3, container, false)
 
-        button_prev = view.findViewById(R.id.buttonPrev)
         button_next = view.findViewById(R.id.buttonNext)
-        button_skip = view.findViewById(R.id.buttonSkip)
         info1 = view.findViewById(R.id.radioButton)
         info2 = view.findViewById(R.id.radioButton2)
         info3 = view.findViewById(R.id.radioButton3)
@@ -62,12 +58,6 @@ class WelcomeFragment3 : Fragment() {
         val radioButtonID: Int = radioGroup.getCheckedRadioButtonId()
         val radioButton: View = radioGroup.findViewById(radioButtonID)
         val idx: Int = radioGroup.indexOfChild(radioButton)
-        Log.d(TAG, "indeks: "+idx)
-
-        button_prev.setOnClickListener{
-            var navWelcome2 = activity as FragmentNavigation
-            navWelcome2.navigateFrag(WelcomeFragment2(),false)
-        }
 
         info1.setOnClickListener{
             navigate(WelcomeFragment(),false)
@@ -77,7 +67,7 @@ class WelcomeFragment3 : Fragment() {
             navigate(WelcomeFragment2(),false)
         }
 
-        button_skip.setOnClickListener {
+        button_next.setOnClickListener {
             navigate(LoginFragment(),false)
         }
 
