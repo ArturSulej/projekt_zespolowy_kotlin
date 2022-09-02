@@ -26,8 +26,8 @@ private const val ARG_PARAM2 = "param2"
  */
 class LoginFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private lateinit var username: EditText
-    private lateinit var password: EditText
+    //private lateinit var username: EditText
+    //private lateinit var password: EditText
     private lateinit var button_login: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,8 +45,8 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_login, container, false)
 
-        username = view.findViewById(R.id.username_login)
-        password = view.findViewById(R.id.password_login)
+        //username = view.findViewById(R.id.username_login)
+        //password = view.findViewById(R.id.password_login)
         button_login = view.findViewById(R.id.button_login)
 
         view.findViewById<Button>(R.id.button_register).setOnClickListener {
@@ -55,12 +55,13 @@ class LoginFragment : Fragment() {
         }
 
         view.findViewById<Button>(R.id.button_login).setOnClickListener{
-            validateForm()
+            //validateForm()
+            firebaseSignIn()
         }
 
         return view
     }
-
+    /*
     private fun validateForm() {
         val icon = AppCompatResources.getDrawable(requireContext(),R.drawable.img_logo)
 
@@ -89,7 +90,7 @@ class LoginFragment : Fragment() {
             }
         }
     }
-
+*/
     private fun firebaseSignIn() {
         button_login.isEnabled = false
         button_login.alpha = 0.5f
