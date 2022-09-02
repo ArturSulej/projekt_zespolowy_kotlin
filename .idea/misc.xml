@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Artur/AndroidStudioProjects/projekt_zespolowy_and/app/src/main/res/drawable/bottom_background.xml" value="0.202" />
+        <entry key="..\:/Users/Artur/AndroidStudioProjects/projekt_zespolowy_and/app/src/main/res/drawable/button_background.xml" value="0.202" />
         <entry key="..\:/Users/Artur/AndroidStudioProjects/projekt_zespolowy_and/app/src/main/res/drawable/button_states.xml" value="0.202" />
+        <entry key="..\:/Users/Artur/AndroidStudioProjects/projekt_zespolowy_and/app/src/main/res/drawable/rounded_edittext.xml" value="0.202" />
         <entry key="..\:/Users/Artur/AndroidStudioProjects/projekt_zespolowy_and/app/src/main/res/drawable/rounded_edittext_focused.xml" value="0.202" />
         <entry key="..\:/Users/Artur/AndroidStudioProjects/projekt_zespolowy_and/app/src/main/res/drawable/rounded_edittext_states.xml" value="0.202" />
         <entry key="..\:/Users/Artur/AndroidStudioProjects/projekt_zespolowy_and/app/src/main/res/layout/activity_main.xml" value="0.25" />
