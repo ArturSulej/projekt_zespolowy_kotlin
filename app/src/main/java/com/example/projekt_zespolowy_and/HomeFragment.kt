@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projekt_zespolowy_and.login_register.LoginFragment
+import com.example.projekt_zespolowy_and.login_register.SignInFragment
 import com.example.projekt_zespolowy_and.login_register.RegisterFragment
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*

@@ -1,7 +1,6 @@
 package com.example.projekt_zespolowy_and.login_register
 
 import android.os.Bundle
-import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,10 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.content.res.AppCompatResources
+import androidx.lifecycle.ViewModelProvider
 import com.example.projekt_zespolowy_and.FragmentNavigation
 import com.example.projekt_zespolowy_and.HomeFragment
 import com.example.projekt_zespolowy_and.R
+import com.example.projekt_zespolowy_and.databinding.FragmentLoginBinding
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,20 +22,24 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
+ * Use the [SignInFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class LoginFragment : Fragment() {
+class SignInFragment : BottomSheetDialogFragment() {
     // TODO: Rename and change types of parameters
     //private lateinit var username: EditText
     //private lateinit var password: EditText
-    private lateinit var button_login: Button
+    //private lateinit var button_login: Button
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            //param1 = it.getString(ARG_PARAM1)
-            //param2 = it.getString(ARG_PARAM2)
+    private lateinit var binding: FragmentLoginBinding
+    private lateinit var loginViewModel: LoginViewModel
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val activity = requireActivity()
+        loginViewModel = ViewModelProvider(activity).get(LoginViewModel::class.java)
+        binding.loginFragmentLoginButton.setOnClickListener {
+            saveAction()
         }
     }
 
@@ -42,25 +47,50 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
+
+        /*
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_login, container, false)
 
         //username = view.findViewById(R.id.username_login)
         //password = view.findViewById(R.id.password_login)
-        button_login = view.findViewById(R.id.button_login)
+        button_login = view.findViewById(R.id.button_register)
 
         view.findViewById<Button>(R.id.button_register).setOnClickListener {
             var navRegister = activity as FragmentNavigation
             navRegister.navigateFrag(RegisterFragment(),false)
         }
 
-        view.findViewById<Button>(R.id.button_login).setOnClickListener{
+        view.findViewById<Button>(R.id.button_register).setOnClickListener{
             //validateForm()
             firebaseSignIn()
         }
 
         return view
+        */
     }
+
+    /*
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val activity = requireActivity()
+        loginViewModel = ViewModelProvider(activity).get(LoginViewModel::class.java)
+        binding.loginFragmentLoginButton.setOnClickListener {
+            saveAction()
+        }
+    }*/
+
+    private fun saveAction() {
+        //loginViewModel.email.value = binding.editTextTextEmailAddress2.text.toString()
+        //loginViewModel.password.value = binding.editTextTextPassword.text.toString()
+        loginViewModel.logged.value = true
+        dismiss()
+    }
+
+
+
     /*
     private fun validateForm() {
         val icon = AppCompatResources.getDrawable(requireContext(),R.drawable.img_logo)
@@ -90,7 +120,7 @@ class LoginFragment : Fragment() {
             }
         }
     }
-*/
+*//*
     private fun firebaseSignIn() {
         button_login.isEnabled = false
         button_login.alpha = 0.5f
@@ -112,11 +142,11 @@ class LoginFragment : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
+            SignInFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }
-    }
+    }*/
 }

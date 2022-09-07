@@ -45,19 +45,19 @@ class RegisterFragment : Fragment() {
         // Inflate the layout for this fragment
         var view =  inflater.inflate(R.layout.fragment_register, container, false)
 
-        username = view.findViewById(R.id.username_register)
-        password = view.findViewById(R.id.password_register)
-        check_password = view.findViewById(R.id.password_check_register)
-        button_register = view.findViewById<Button>(R.id.button_register_reg)
+        //username = view.findViewById(R.id.username_register)
+        //password = view.findViewById(R.id.password_register)
+        //check_password = view.findViewById(R.id.password_check_register)
+        //button_register = view.findViewById<Button>(R.id.button_register_reg)
 
-        view.findViewById<Button>(R.id.button_login_reg).setOnClickListener {
-            var navRegister = activity as FragmentNavigation
-            navRegister.navigateFrag(LoginFragment(),false)
-        }
+        //view.findViewById<Button>(R.id.button_login_reg).setOnClickListener {
+        //    var navRegister = activity as FragmentNavigation
+       //     navRegister.navigateFrag(LoginFragment(),false)
+        //}
 
-        view.findViewById<Button>(R.id.button_register_reg).setOnClickListener{
-            validateEmptyForm()
-        }
+        //view.findViewById<Button>(R.id.button_register_reg).setOnClickListener{
+        //    validateEmptyForm()
+        //}
 
         return view
     }
@@ -103,7 +103,7 @@ class RegisterFragment : Fragment() {
         button_register.alpha = 0.5f
         Toast.makeText(context,"Utworzono konto",Toast.LENGTH_SHORT).show()
         var navHome = activity as FragmentNavigation
-        navHome.navigateFrag(LoginFragment(),false)
+        navHome.navigateFrag(SignInFragment(),false)
     }
 
     companion object {

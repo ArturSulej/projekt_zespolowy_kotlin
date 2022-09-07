@@ -1,6 +1,7 @@
 package com.example.projekt_zespolowy_and.welcome
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,8 +13,10 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 import com.example.projekt_zespolowy_and.FragmentNavigation
+import com.example.projekt_zespolowy_and.MainActivity
 import com.example.projekt_zespolowy_and.R
-import com.example.projekt_zespolowy_and.login_register.LoginFragment
+import com.example.projekt_zespolowy_and.login_register.SignInFragment
+import com.example.projekt_zespolowy_and.login_register.LoginRegister
 
 // TODO: Rename parameter arguments, choose names that match
 // TODO: add swipe gestures
@@ -68,7 +71,9 @@ class WelcomeFragment3 : Fragment() {
         }
 
         button_next.setOnClickListener {
-            navigate(LoginFragment(),false)
+            //navigate(LoginFragment(),false)
+            val intent = Intent(activity, LoginRegister::class.java)
+            startActivity(intent)
         }
 
         return view
